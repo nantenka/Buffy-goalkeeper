@@ -51,7 +51,7 @@ body{
   position:absolute;
   width:48px;
   height:48px;
-  background-image:url('images/ball.png');
+  background-image:url('images/ball1.png');
   background-size:cover;
   opacity:0.95;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
