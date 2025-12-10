@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Buffy Goalkeeper</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buffy Goalkeeper</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="menu">
-<h1 class="title">Buffy Goalkeeper</h1>
-<button id="startBtn" class="btn">START</button>
-</div>
+  <!-- MENU -->
+  <div id="menu">
+    <div class="menu-inner">
+      <h1 class="title">Buffy Goalkeeper</h1>
+      <button id="startBtn" class="btn">START</button>
+    </div>
 
+    <!-- floating balls left/right -->
+    <div class="float-ball left b1"></div>
+    <div class="float-ball left b2"></div>
+    <div class="float-ball left b3"></div>
+    <div class="float-ball right b4"></div>
+    <div class="float-ball right b5"></div>
+    <div class="float-ball right b6"></div>
+  </div>
 
-<canvas id="gameCanvas" width="900" height="600"></canvas>
+  <!-- Canvas Game -->
+  <div id="game-wrap">
+    <canvas id="gameCanvas" width="900" height="600"></canvas>
+  </div>
 
+  <!-- End screen -->
+  <div id="endScreen">
+    <div id="endText"></div>
+    <button id="retryBtn" class="btn">Try Again</button>
+  </div>
 
-<div id="endScreen">
-<div id="endText"></div>
-<button id="retryBtn" class="btn">Try Again</button>
-</div>
-
-
-<script src="game.js"></script>
+  <script src="game.js"></script>
 </body>
 </html>
