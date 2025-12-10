@@ -1,5 +1,4 @@
-// Buffy Goalkeeper — game.js
-// Положи ball.png и goalkeeper.png рядом с этими файлами.
+// Buffy Goalkeeper — Полная рабочая логика игры
 
 
 const canvas = document.getElementById('gameCanvas');
@@ -11,24 +10,66 @@ const endScreen = document.getElementById('endScreen');
 const endText = document.getElementById('endText');
 
 
-// картинки (пользователь загружает свои файлы с такими именами)
+// картинки
 const imgBall = new Image(); imgBall.src = 'ball.png';
 const imgKeeper = new Image(); imgKeeper.src = 'goalkeeper.png';
+const imgGoal = new Image(); imgGoal.src = 'goal.png';
 
 
-// состояние игры
+// состояние
 let shots = 0;
 let goals = 0;
 let dragging = false;
 let inShot = false;
 
 
-// мяч
-const ball = { x: 450, y: 520, r: 24, startY: 520, pull: 0 };
-// цель прицела
+// объект мяча
+const ball = { x: 450, y: 520, r: 28, startY: 520, pull: 0, vx: 0, vy: 0 };
+
+
+// прицел
 const target = { x: 450, y: 150 };
 
 
 // вратарь
-const keeper = { x: 400, y: 150, w: 100, h: 120, dx: 2.2 };
-function endGame(){ canvas.style.display='none'; endScreen.style.display='flex'; endText.innerText = goals >= 3 ? 'YOU WON' : 'GAME OVER'; }
+const keeper = { x: 400, y: 150, w: 100, h: 120, dx: 2 };
+
+
+function resetBall() {
+ball.x = 450;
+ball.y = 520;
+ball.vx = 0;
+ball.vy = 0;
+inShot = false;
+}
+
+
+function startGame() {
+menu.style.display = 'none';
+canvas.style.display = 'block';
+
+
+goals = 0;
+shots = 0;
+resetBall();
+animate();
+}
+
+
+startBtn.addEventListener('click', startGame);
+
+
+retryBtn.addEventListener('click', () => {
+endScreen.style.display = 'none';
+canvas.style.display = 'block';
+goals = 0;
+shots = 0;
+resetBall();
+animate();
+});
+
+
+// управление мышью
+canvas.addEventListener('mousedown', e => {
+if (inShot) return;
+}
